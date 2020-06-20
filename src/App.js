@@ -10,28 +10,38 @@ uuidv4();
 
 class App extends Component {
   state = {
-    items: [
-      { id: 1, title: "wake up" },
-      { id: 2, title: "wake up" },
-    ],
+    items: [],
     id: uuidv4(),
     item: "",
     editItem: false,
   };
 
   handleChange = (e) => {
-    console.log("handleChange");
+    this.setState({
+      item: e.target.value,
+    });
   };
 
   handleSubmit = (e) => {
-    console.log("handleSubmit");
+    e.preventDefault();
+    const newItem = {
+      id: this.state.id,
+      title: this.state.item,
+    };
+    const updateItems = [...this.state.items, newItem];
+    this.setState({
+      items: updateItems,
+      item: "",
+      id: uuidv4(),
+      editItem: false,
+    });
   };
 
   clearList = () => {
     console.log("clearList");
   };
   handleDelete = (id) => {
-    console.log(`handleDelete${id}`);
+    console.log(`handleDelete ${id}`);
   };
 
   handleEdit = (id) => {
@@ -39,7 +49,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
+    
     return (
       <div className="container">
         <div className="row">
