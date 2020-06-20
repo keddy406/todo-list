@@ -29,7 +29,7 @@ export default class TodoInput extends Component {
                 : "btn btn-block btn-primary mt-3 text-uppercase"
             }
           >
-            {editItem ? "編輯" : "新增"}
+            {editItem ? '編輯' : '新增'}
           </button>
         </form>
       </div>
