@@ -38,10 +38,15 @@ class App extends Component {
   };
 
   clearList = () => {
-    console.log("clearList");
+    this.setState({
+      items: [],
+    });
   };
   handleDelete = (id) => {
-    console.log(`handleDelete ${id}`);
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
+    this.setState({
+      items: filteredItems,
+    });
   };
 
   handleEdit = (id) => {
@@ -49,7 +54,6 @@ class App extends Component {
   };
 
   render() {
-    
     return (
       <div className="container">
         <div className="row">
